@@ -1,0 +1,44 @@
+// Chức năng nút Xem
+
+function showCourse(name, progress) {
+
+    document.getElementById("selected-course").innerHTML = `
+        <h3>MÔN HỌC ĐANG CHỌN</h3>
+        <p>Tên môn học: ${name}</p>
+        <p>Tiến độ: ${progress}</p>
+    `;
+}
+
+
+// Chức năng đổi màu menu
+
+let menuItems = document.querySelectorAll(".menu-item");
+
+menuItems.forEach(item => {
+
+    item.addEventListener("click", function(){
+
+        menuItems.forEach(i => {
+            i.classList.remove("active");
+        });
+
+        this.classList.add("active");
+    });
+
+});
+
+
+// MSSV
+
+let mssv = "22123456";
+
+let lastTwo = parseInt(mssv.slice(-2));
+
+let courseContainer = document.getElementById("course-container");
+
+if(lastTwo % 2 === 0){
+    courseContainer.style.gridTemplateColumns = "repeat(3,1fr)";
+}
+else{
+    courseContainer.style.gridTemplateColumns = "repeat(2,1fr)";
+}
